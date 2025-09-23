@@ -19,7 +19,7 @@ public class TaskService {
     }
 
     public Task create(Task task) {
-        task.setStatus("Pendente a fazer");
+        task.setStatus("Task criada! Pendente a fazer");
         return repository.save(task);
     }
 //lista todas tarefas

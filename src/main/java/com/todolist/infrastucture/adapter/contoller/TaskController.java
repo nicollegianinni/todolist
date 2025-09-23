@@ -28,9 +28,10 @@ public class TaskController {
 
     @PostMapping
     public ResponseEntity<TaskResponseDTO> create(@RequestBody @Valid TaskRequestDTO dto) {
-        Task task = new Task(null, dto.getTitle(), dto.getDescription(), "PENDING", dto.getDueDate());
+        Task task = new Task(null, dto.getTitle(), dto.getDescription(), "Task criada! Pendente a fazer", dto.getDueDate());
         Task saved = service.create(task);
         return ResponseEntity.ok(new TaskResponseDTO(saved.getId(), saved.getTitle(), saved.getDescription(),
+                //Retornando apenas o status: "Task criada! Pendente a fazer" e a data de expiração, para o cliente final externo
                 saved.getStatus(), saved.getDueDate()));
     }
 

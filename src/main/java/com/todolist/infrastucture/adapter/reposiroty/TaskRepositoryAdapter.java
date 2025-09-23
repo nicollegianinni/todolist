@@ -30,7 +30,8 @@ public class TaskRepositoryAdapter implements TaskRepositoryPort {
         entity.setDueDate(task.getDueDate());
 
         TaskEntity saved = jpaRepository.save(entity);
-        //depois de salvo no banco de dados agora crie um objeto na classe Task
+        //depois de salvo no banco de dados, atraves da injeção de dependencia TaskJpaRepository jpaRepository
+        // depois disse crie um objeto salvando na classe Task
         return new Task(saved.getId(), saved.getTitle(), saved.getDescription(), saved.getStatus(), saved.getDueDate());
     }
 

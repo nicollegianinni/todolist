@@ -4,11 +4,10 @@ import jakarta.validation.constraints.NotBlank;
 
 //Adapter - é um objeto usado para receber dados da requisição do cliente
 //é a entrada quando um clinte manda um JSON (com titulo e descrição da tarefa)
-// Tem validação @NotBlank considera espaço vazio
+// Tem validação @NotBlank nao pode ser nulo nem vazio
 public class TaskRequestDTO {
-    @NotBlank
+    @NotBlank  // validação: nao pode ser nulo nem vazio
     private String title;
-
     private String description;
     private String dueDate;
 
