@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-// adaptadores - endpopint metodos http
+// adaptador - endpopint metodos http fazendo a coneção com o mundo externo
+//entry point da aplicação pelo metodo HTTP (API REST)
+//converte DTOs vindos do cliente (externo) em Task (domain)
+//Converte Task em TaskResponseDTO antes de devolver para o cliente
+
 
 @RestController
 @RequestMapping("/tasks")

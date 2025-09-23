@@ -2,6 +2,9 @@ package com.todolist.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
+//Adapter - é um objeto usado para receber dados da requisição do cliente
+//é a entrada quando um clinte manda um JSON (com titulo e descrição da tarefa)
+// Tem validação @NotBlank considera espaço vazio
 public class TaskRequestDTO {
     @NotBlank
     private String title;

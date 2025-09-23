@@ -1,5 +1,5 @@
 package com.todolist.domain.model;
-//model entidade na tabela
+//model - conte atributos, mas nao sabe nada do banco de dados so entende o que é "tarefa"
 public class Task {
     private Long id;
     private String title;

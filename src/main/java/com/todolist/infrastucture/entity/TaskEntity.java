@@ -2,7 +2,8 @@ package com.todolist.infrastucture.entity;
 
 import jakarta.persistence.*;
 
-// adaptadores - criação de tabela e colunas
+// adaptadores - essa classe é a tabela no banco de dados
+//diferente da classe Task, essa classe "TaskEntity" esta atrelada ao banco de dados
 @Entity
 @Table(name = "tasks")
 public class TaskEntity {

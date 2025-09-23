@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
-// adaptadores - conexão com banco de dados
+// adaptador - Essa classe faz a coneção/tradução da classe Task (domain) com ela EntityTask(infraestruture)
+//esse adaptador conecta o nucleo da aplicação com o banco de dados implementando os metodos criados na interface
 
 @Repository
 public class TaskRepositoryAdapter implements TaskRepositoryPort {
@@ -29,6 +30,7 @@ public class TaskRepositoryAdapter implements TaskRepositoryPort {
         entity.setDueDate(task.getDueDate());
 
         TaskEntity saved = jpaRepository.save(entity);
+        //depois de salvo no banco de dados agora crie um objeto na classe Task
         return new Task(saved.getId(), saved.getTitle(), saved.getDescription(), saved.getStatus(), saved.getDueDate());
     }
 
