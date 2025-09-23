@@ -28,7 +28,7 @@ public class TaskController {
 
     @PostMapping
     public ResponseEntity<TaskResponseDTO> create(@RequestBody @Valid TaskRequestDTO dto) {
-        Task task = new Task(null, dto.getTitle(), dto.getDescription(), "Task criada! Pendente a fazer", dto.getDueDate());
+        Task task = new Task(null, dto.getTitle(), dto.getDescription(), "Task pendente", dto.getDueDate());
         Task saved = service.create(task);
         return ResponseEntity.ok(new TaskResponseDTO(saved.getId(), saved.getTitle(), saved.getDescription(),
                 //Retornando apenas o status: "Task criada! Pendente a fazer" e a data de expiração, para o cliente final externo
@@ -45,7 +45,7 @@ public class TaskController {
 
     @PutMapping("/{id}")
     public ResponseEntity<TaskResponseDTO> update(@PathVariable Long id, @RequestBody @Valid TaskRequestDTO dto) {
-        Task updated = service.update(id, new Task(id, dto.getTitle(), dto.getDescription(), "PENDING", dto.getDueDate()));
+        Task updated = service.update(id, new Task(id, dto.getTitle(), dto.getDescription(), "Task criada! Pendente a fazer", dto.getDueDate()));
         return ResponseEntity.ok(new TaskResponseDTO(updated.getId(), updated.getTitle(), updated.getDescription(),
                 updated.getStatus(), updated.getDueDate()));
     }
